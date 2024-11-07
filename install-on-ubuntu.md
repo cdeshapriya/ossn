@@ -56,7 +56,7 @@ sudo a2enmod rewrite
 sudo systemctl restart apache2
 
 ### Configure php.ini
-sudo vim /etc/php/7.0/cli/php.ini  
+sudo vim /etc/php/8.1/cli/php.ini  
 &nbsp;&nbsp;allow_url_fopen = On  
 &nbsp;&nbsp;file_uploads = On  
 &nbsp;&nbsp;upload_max_filesize = 32M  
