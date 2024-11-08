@@ -60,7 +60,7 @@ FLUSH PRIVILEGES;
 ### Configure Apache for OSSN
 
 ```
-cd /etc/apache2/site-available  
+cd /etc/apache2/sites-available  
 sudo cp 000-default.conf ossn.conf
 ```
 
