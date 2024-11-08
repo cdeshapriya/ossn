@@ -20,7 +20,7 @@ sudo apt-get install apache2 libapache2-mod-php8.1 libapache2-mod-fcgid php8.1-f
 ```
 wget https://www.opensource-socialnetwork.org/download_ossn/latest/build.zip  
 sudo unzip build.zip -d /var/www/html  
-sudo chown -R www-data:www-data /var/www/html/ossn
+ sudo chown -R www-data:www-data /var/www/ossn_data
 ```
 
 ### Configure database for OSSN
@@ -95,7 +95,10 @@ sudo systemctl restart apache2
 ### Configure php.ini
 
 ```
-sudo vim /etc/php/8.1/cli/php.ini  
+sudo vim /etc/php/8.1/cli/php.ini
+```
+
+```
 allow_url_fopen = On  
 file_uploads = On
 upload_max_filesize = 32M
