@@ -26,19 +26,35 @@ sudo chown -R www-data:www-data /var/www/html/ossn
 ### Configure database for OSSN
 
 ```
-sudo mysql_secure_installation  
+sudo mysql_secure_installation
+```
+
+```
 sudo mysql -u root -p
 ```
 
 ```
-  SET GLOBAL sql_mode='';  
+  SET GLOBAL sql_mode='';
+```
+
+```
   CREATE DATABASE ossndb;  
-  CREATE USER 'ossnuser'@'localhost' IDENTIFIED BY 'password-here';  
-  GRANT ALL PRIVILEGES ON ossndb.* TO 'ossnuser'@'localhost';  
-  FLUSH PRIVILEGES;
 ```
+
 ```
-  \q
+CREATE USER 'ossnuser'@'localhost' IDENTIFIED BY 'password-here';  
+```
+
+```
+GRANT ALL PRIVILEGES ON ossndb.* TO 'ossnuser'@'localhost';
+```
+
+```
+FLUSH PRIVILEGES;
+```
+
+```
+\q
 ```
   
 ### Configure Apache for OSSN
@@ -63,7 +79,7 @@ sudo vim ossn.conf
       AllowOverride All  
       Order allow,deny  
       allow from all  
-</Directory>
+   </Directory>
    ErrorLog /var/log/apache2/ossn_log  
    CustomLog /var/log/apache2/ossn_custom_log common    
 </VirtualHost>
@@ -89,6 +105,9 @@ upload_max_filesize = 32M
 
 ```
 sudo mkdir -p /var/www/ossn_data
+```
+
+```
 sudo chown -R www-data:www-data ossn_data
 ```
 
