@@ -34,11 +34,11 @@ sudo mysql -u root -p
 ```
 
 ```
-  SET GLOBAL sql_mode='';
+SET GLOBAL sql_mode='';
 ```
 
 ```
-  CREATE DATABASE ossndb;  
+CREATE DATABASE ossndb;  
 ```
 
 ```
