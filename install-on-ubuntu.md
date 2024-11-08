@@ -12,8 +12,7 @@ sudo apt upgrade -y
 ### Install LAMP Stack
 
 ```
-sudo apt-get install apache2 libapache2-mod-php8.1  mariadb-server php8.1 php8.1-mysql php8.1-curl php8.1-gd     
-php8.1-json php8.1-opcache php8.1-xml mcrypt php8.1-mcrypt php8.1-cgi php8.1-json php8.1-zip
+sudo apt-get install apache2 libapache2-mod-php8.1 libapache2-mod-fcgid php8.1-fpm  mariadb-server php8.1 php8.1-mysql php8.1-curl php8.1-gd  php-json php8.1-opcache php8.1-xml mcrypt php8.1-cgi  php8.1-zip
 ```
 
 ### Download Open Source Social Network(OSSN)
