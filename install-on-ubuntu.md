@@ -83,7 +83,7 @@ To utilize any TLS certificates, first enable mod_ssl, an Apache module that sup
 Enable `mod_ssl` with the `a2enmod` command:
 
 ```
-sudo a2enmod SSL
+sudo a2enmod ssl
 ```
 
 ### Restart Apache to activate the module:
