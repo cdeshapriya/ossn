@@ -18,10 +18,20 @@ sudo apt-get install apache2 libapache2-mod-php8.1 libapache2-mod-fcgid php8.1-f
 ### Download Open Source Social Network(OSSN)
 
 ```
-wget https://www.opensource-socialnetwork.org/download_ossn/latest/build.zip  
-sudo unzip build.zip -d /var/www/html  
- sudo chown -R www-data:www-data /var/www/ossn_data
+wget https://www.opensource-socialnetwork.org/download_ossn/latest/build.zip
 ```
+
+```
+sudo unzip build.zip -d /var/www/html
+```
+
+```
+sudo chown -R www-data:www-data /var/www/ossn_data
+```
+
+### Note
+
+If you have an ossn premium version license, you must first login to your premium version account before downloading it. In this instance, you must skip the ```wget``` command line above. 
 
 ### Configure database for OSSN
 
