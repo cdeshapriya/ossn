@@ -92,7 +92,7 @@ sudo a2enmod ssl
 sudo systemctl restart apache2
 ```
 
-With Apache now prepared for encryption, we can proceed to generate a new TLS certificate. The certificate will contain essential information about your site and will be accompanied by a key file that enables the server to safely manage encrypted data.
+With Apache now prepared for encryption, we can generate a new TLS certificate. The certificate will contain essential information about your site and be accompanied by a key file that enables the server to manage encrypted data safely.
 
 ```
 sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/private/srilankan.social.key -out /etc/ssl/certs/srilankan.social.crt
