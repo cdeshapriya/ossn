@@ -75,7 +75,7 @@ FLUSH PRIVILEGES;
 sudo ufw allow "Apache Full"
 ```
 
-### Step 1 — Enabling mod_ssl
+### Enabling mod_ssl
 
 
 To utilize any TLS certificates, first enable mod_ssl, an Apache module that supports SSL encryption.
@@ -86,7 +86,40 @@ Enable `mod_ssl` with the `a2enmod` command:
 sudo a2enmod SSL
 ```
 
+### Restart Apache to activate the module:
 
+```
+sudo systemctl restart apache2
+```
+
+With Apache now prepared for encryption, we can proceed to generate a new TLS certificate. The certificate will contain essential information about your site and will be accompanied by a key file that enables the server to safely manage encrypted data.
+
+```
+sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/private/srilankan.social.key -out /etc/ssl/certs/srilankan.social.crt
+
+```
+
+Enter required information as mentioned in the output below
+
+````
+.................+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...+.........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+...+.........+....................+...+......+....+...+...+..+...+...................+............+........+.+......+...+..+.+........+.......+.................+.......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*..+.+...+.....+.......+.....+.......+..+...............+....+..+.......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.....+..+...+...+....+..+.+...+.....+......+....+.....+.+...+..+.............+...+...+.....+....+.....+.+......+.........+............+..+............+....+.....+.........+...............+..........+...+..............+....+..+....+...+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:LK
+State or Province Name (full name) [Some-State]:Western
+Locality Name (eg, city) []:Colombo
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Libresoft Technologies            
+Organizational Unit Name (eg, section) []:IT
+Common Name (e.g. server FQDN or YOUR name) []:srilankan.social
+Email Address []:info@srilankan.social
+```
 
 ```
 cd /etc/apache2/sites-available
@@ -101,11 +134,15 @@ sudo vim ossn.conf
 ```
 
 ```
-<VirtualHost *:80>
-   ServerAdmin admin@example.com  
+<VirtualHost *:443>
+   ServerAdmin admin@srilankan.social  
    DocumentRoot /var/www/html/ossn/  
-   ServerName example.com  
-   ServerAlias www.example.com  
+   ServerName srilankan.social
+   SSLEngine on
+   SSLCertificateFile /etc/ssl/certs/srilankan.social.key
+   SSLCertificateKeyFile /etc/ssl/private/srilankan.social.key
+   ServerAlias www.srilankan.social
+   
    <Directory /var/www/html/ossn/> 
       Options FollowSymLinks  
       AllowOverride All  
